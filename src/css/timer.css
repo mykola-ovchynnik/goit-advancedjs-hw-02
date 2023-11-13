@@ -21,6 +21,11 @@ button {
   margin-bottom: 20px;
 }
 
+button:disabled {
+  background-color: #666;
+  pointer-events: none;
+}
+
 button:hover {
   background-color: #45a049;
 }
