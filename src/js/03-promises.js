@@ -36,7 +36,6 @@ function handlerGenPromises(event) {
     createPromise(i, delayValue)
       .then(({ position, delay }) =>
         iziToast.success({
-          // title: '',
           message: `✅ Fulfilled promise ${position} in ${delay}ms`,
           position: 'topRight',
           icon: '',
@@ -44,7 +43,6 @@ function handlerGenPromises(event) {
       )
       .catch(({ position, delay }) =>
         iziToast.error({
-          // title: '',
           message: `❌ Rejected promise ${position} in ${delay}ms`,
           position: 'topRight',
           icon: '',
