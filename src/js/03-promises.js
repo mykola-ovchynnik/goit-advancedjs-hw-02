@@ -49,4 +49,6 @@ function handlerGenPromises(event) {
         })
       );
   }
+
+  elements.form.reset();
 }

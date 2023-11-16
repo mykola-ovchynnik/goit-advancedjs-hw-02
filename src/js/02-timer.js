@@ -56,7 +56,6 @@ function handlerCountdown() {
     if (timeDifference <= 0) {
       clearInterval(interval);
 
-      // elements.btnStart.disabled = false;
       elements.input.disabled = false;
     } else {
       const { days, hours, minutes, seconds } = convertMs(timeDifference);
