@@ -13,6 +13,8 @@ const elements = {
   seconds: document.querySelector('span[data-seconds]'),
 };
 
+let timerRun;
+
 elements.btnStart.disabled = true; // Disable button until correct date is selected
 
 let selectedDate;
@@ -31,6 +33,8 @@ const options = {
         message: 'Please choose a date in the future',
         position: 'topCenter',
       });
+
+      elements.btnStart.disabled = true;
     } else {
       elements.btnStart.disabled = false;
     }
@@ -40,6 +44,9 @@ const options = {
 flatpickr(elements.input, options);
 
 function handlerCountdown() {
+  elements.input.disabled = true;
+  elements.btnStart.disabled = true;
+
   selectedDate = new Date(elements.input.value).getTime();
 
   const interval = setInterval(() => {
@@ -48,6 +55,9 @@ function handlerCountdown() {
 
     if (timeDifference <= 0) {
       clearInterval(interval);
+
+      // elements.btnStart.disabled = false;
+      elements.input.disabled = false;
     } else {
       const { days, hours, minutes, seconds } = convertMs(timeDifference);
 
@@ -83,3 +93,5 @@ function addLeadingZero(value) {
 }
 
 elements.btnStart.addEventListener('click', handlerCountdown);
+
+disableStart();
